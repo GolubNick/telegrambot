@@ -1,0 +1,9 @@
+{
+  "name": "telegrambot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.40.0",
+    "telegraf": "^3.34.1"
+  }
+}
