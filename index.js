@@ -1,43 +1,52 @@
-var TelegramBot = require('node-telegram-bot-api');
+let TelegramBot = require('node-telegram-bot-api');
 
-var token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
-var bot = new TelegramBot(token, {polling: true});
+let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
+let bot = new TelegramBot(token, {polling: true});
 
-var notes = [];
+const arrWeek = [
+    {name: 'monday', place_time: 'высоцкого 9:30'},
+    {name: 'tuesday', place_time: 'магазин 9:35'},
+    {name: 'wednesday', place_time: 'магазин 9:35'},
+    {name: 'thursday', place_time: 'высоцкого 9:30'},
+    {name: 'friday', place_time: 'высоцкого 9:30'}
+];
 
-bot.onText(/понедельник/, function (msg) {
-    var userId = msg.from.id;
-    bot.sendMessage(userId, 'Возле работы');
-});
-bot.onText(/вторник/, function (msg) {
-    var userId = msg.from.id;
-    bot.sendMessage(userId, 'На остановке');
-});
-bot.onText(/среда/, function (msg) {
-    var userId = msg.from.id;
-    bot.sendMessage(userId, 'Выходной');n
-});
-bot.onText(/четверг/, function (msg) {
-    var userId = msg.from.id;
-    bot.sendMessage(userId, 'Выходной');
-});
-bot.onText(/пятница/, function (msg) {
-    var userId = msg.from.id;
-    bot.sendMessage(userId, 'Выходной');
+
+bot.onText(/подписка/, function (msg) {
+    let userId = msg.from.id;
+    bot.sendMessage(userId, 'Вы подписались на рассылку!');
 });
 
-var options = {
-    reply_markup: JSON.stringify({
-        inline_keyboard: [
-            [{ text: 'Кнопка 1', callback_data: '1' }],
-            [{ text: 'Кнопка 2', callback_data: 'data 2' }],
-            [{ text: 'Кнопка 3', callback_data: 'text 3' }]
-        ]
-    })
-};
+bot.onText(/отписка/, function (msg) {
+    let userId = msg.from.id;
+    bot.sendMessage(userId, 'Вы отписались от рассылку!');
+});
 
-bot.onText(/\/start_test/, function (msg, match) {
-    bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
+bot.onText(/week/, function (msg, match) {
+    let userId = msg.from.id;
+    let options = {
+        reply_markup: JSON.stringify({
+            inline_keyboard: [
+                [{text: 'Понедельник', callback_data: arrWeek[0].name}],
+                [{text: 'Вторник', callback_data: arrWeek[1].name}],
+                [{text: 'Среда', callback_data: arrWeek[2].name}],
+                [{text: 'Четверг', callback_data: arrWeek[3].name}],
+                [{text: 'Пятница', callback_data: arrWeek[4].name}]
+            ]
+        })
+    };
+    console.log(`userId is ${userId}`);
+    bot.sendMessage(userId, 'Выберите день недели:', options);
+});
+
+bot.on('callback_query', function (msg) {
+    let answer = msg.data;
+    console.log(answer);
+    arrWeek.forEach(x => {
+        if ((x.name).includes(answer)) {
+            bot.sendMessage(msg.from.id, x.place_time);
+        }
+    });
 });
 
 
