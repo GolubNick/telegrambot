@@ -1,3 +1,5 @@
+'use strict';
+
 let TelegramBot = require('node-telegram-bot-api');
 
 let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
@@ -10,6 +12,14 @@ const arrWeek = [
     {name: 'thursday', place_time: 'высоцкого 9:30'},
     {name: 'friday', place_time: 'высоцкого 9:30'}
 ];
+
+let arrButtons = {
+    reply_markup: JSON.stringify({
+        inline_keyboard: [
+            [{text: '+', callback_data: 'positive'}, {text: '-', callback_data: 'negative'}]
+        ]
+    })
+};
 
 
 bot.onText(/подписка/, function (msg) {
@@ -40,15 +50,20 @@ bot.onText(/week/, function (msg, match) {
 });
 
 bot.on('callback_query', function (msg) {
+    let day;
     let answer = msg.data;
+    let userId = msg.from.id;
     console.log(answer);
     arrWeek.forEach(x => {
         if ((x.name).includes(answer)) {
-            bot.sendMessage(msg.from.id, x.place_time);
+            day = x.name;
+            console.log(day);
+            bot.sendMessage(userId, x.place_time);
+            bot.sendMessage(userId, 'Подтвердите выше присутствие', arrButtons);
         }
     });
+    if (answer === 'positive'){
+        bot.sendMessage(userId, 'Спасибо, ожидаем вас.');
+        bot.sendMessage('1019762042', `Кто-то будет в ${day}`);
+    }
 });
-
-
-
-
