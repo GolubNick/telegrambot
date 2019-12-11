@@ -64,6 +64,6 @@ bot.on('callback_query', function (msg) {
     });
     if (answer === 'positive'){
         bot.sendMessage(userId, 'Спасибо, ожидаем вас.');
-        bot.sendMessage('1019762042', `Кто-то будет в ${day}`);
+        bot.sendMessage('1019762042', `${userId} будет в ${day}`);
     }
 });
