@@ -6,11 +6,11 @@ let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
 let bot = new TelegramBot(token, {polling: true});
 
 const arrWeek = [
-    {name: 'monday', place_time: 'высоцкого 9:30'},
-    {name: 'tuesday', place_time: 'магазин 9:35'},
-    {name: 'wednesday', place_time: 'магазин 9:35'},
-    {name: 'thursday', place_time: 'высоцкого 9:30'},
-    {name: 'friday', place_time: 'высоцкого 9:30'}
+    {name: 'monday', place_time: 'На данный момент информация отсутствует для этого дня'},
+    {name: 'tuesday', place_time: 'На данный момент информация отсутствует для этого дня'},
+    {name: 'wednesday', place_time: 'На данный момент информация отсутствует для этого дня'},
+    {name: 'thursday', place_time: 'На данный момент информация отсутствует для этого дня'},
+    {name: 'friday', place_time: 'магазин 9:35'}
 ];
 
 let arrButtons = {
