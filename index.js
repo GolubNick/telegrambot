@@ -4,6 +4,7 @@ let TelegramBot = require('node-telegram-bot-api');
 
 let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
 let bot = new TelegramBot(token, {polling: true});
+let users  = [{name: 'Alex', id : '55033367', day: ''}];
 
 const arrWeek = [
     {name: 'monday', place_time: 'На данный момент информация отсутствует для этого дня'},
@@ -62,8 +63,10 @@ bot.on('callback_query', function (msg) {
             bot.sendMessage(userId, 'Подтвердите выше присутствие', arrButtons);
         }
     });
-    if (answer === 'positive'){
+    if (answer === 'positive') {
         bot.sendMessage(userId, 'Спасибо, ожидаем вас.');
         bot.sendMessage('1019762042', `${userId} будет в ${day}`);
+    } else if (answer === 'negative') {
+        bot.sendMessage(userId, 'Спасибо, что воспользовались ботом.');
     }
 });
