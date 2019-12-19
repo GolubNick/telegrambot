@@ -13,7 +13,7 @@ const arrWeek = [
     {name: 'tuesday', place_time: 'Магазин в 9:35'},
     {name: 'wednesday', place_time: 'Магазин в 9:35'},
     {name: 'thursday', place_time: 'Высоцкого в 9:30'},
-    {name: 'friday', place_time: 'Высоцкого в 9:30'}
+    {name: 'friday', place_time: 'Магазин в 9:35'}
 ];
 
 let arrButtons = {
