@@ -66,7 +66,7 @@ bot.on('callback_query', function (msg) {
     if (answer === 'positive') {
         let user = users.filter(w => w.id === userId)[0];
         bot.sendMessage(userId, 'Спасибо, ожидаем вас.');
-        bot.sendMessage('1019762042', `${user.name} будет в ${user.day}`);
+        bot.sendMessage('1019762042', `${user.name} ${user.id} будет в ${user.day}`);
     } else if (answer === 'negative') {
         bot.sendMessage(userId, 'Спасибо, что воспользовались ботом.');
     }
