@@ -4,15 +4,15 @@ let TelegramBot = require('node-telegram-bot-api');
 
 let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
 let bot = new TelegramBot(token, {polling: true});
-// let users  = [{name: 'Alex', id : '55033367', day: ''}];
-let users  = [];
+let users  = [{name: 'Александр', id : '55033367'}];
+// let users  = [];
 let flag = false;
 
 const arrWeek = [
-    {name: 'monday', place_time: 'Магазин в 9:35'},
-    {name: 'tuesday', place_time: 'Магазин в 9:35'},
+    {name: 'monday', place_time: 'Высоцкого остановка в 9:30'},
+    {name: 'tuesday', place_time: 'Выезжаю в 7:30'},
     {name: 'wednesday', place_time: 'Магазин в 9:35'},
-    {name: 'thursday', place_time: 'Высоцкого в 9:30'},
+    {name: 'thursday', place_time: 'Высоцкого остановка в 9:30'},
     {name: 'friday', place_time: 'Магазин в 9:35'}
 ];
 
