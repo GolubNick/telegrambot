@@ -1,8 +1,9 @@
 'use strict';
 
 let TelegramBot = require('node-telegram-bot-api');
+const fs = require("fs");
 
-let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
+let token = fs.readFileSync("token", "utf8");
 let bot = new TelegramBot(token, {polling: true});
 let users  = [{name: 'Александр', id : '55033367'}];
 // let users  = [];
