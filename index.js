@@ -3,7 +3,7 @@
 let TelegramBot = require('node-telegram-bot-api');
 const fs = require("fs");
 
-let token1 = fs.readFileSync("token", "utf8");
+let token1 = fs.readFileSync("token", "ru_RU.utf8");
 let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
 console.log(token === token1);
 let bot = new TelegramBot(token, {polling: true});
