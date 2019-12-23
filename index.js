@@ -3,7 +3,9 @@
 let TelegramBot = require('node-telegram-bot-api');
 const fs = require("fs");
 
-let token = fs.readFileSync("token", "utf8");
+let token1 = fs.readFileSync("token", "utf8");
+let token = '973150418:AAFpWeO1cQtNRQCe1IivhsBPyxEOfyHiTik';
+console.log(token === token1);
 let bot = new TelegramBot(token, {polling: true});
 let users  = [{name: 'Александр', id : '55033367'}];
 // let users  = [];
@@ -11,7 +13,7 @@ let flag = false;
 
 const arrWeek = [
     {name: 'monday', place_time: 'Высоцкого остановка в 9:30'},
-    {name: 'tuesday', place_time: 'Выезжаю в 7:30'},
+    {name: 'tuesday', place_time: 'Выезжаю в 7:20'},
     {name: 'wednesday', place_time: 'Магазин в 9:35'},
     {name: 'thursday', place_time: 'Высоцкого остановка в 9:30'},
     {name: 'friday', place_time: 'Магазин в 9:35'}
