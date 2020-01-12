@@ -12,8 +12,8 @@ let users  = [{name: 'Александр', id : '55033367'}];
 let flag = false;
 
 const arrWeek = [
-    {name: 'monday', place_time: 'Высоцкого остановка в 9:30'},
-    {name: 'tuesday', place_time: 'Выезжаю в 7:20'},
+    {name: 'monday', place_time: 'Магазин в 9:35'},
+    {name: 'tuesday', place_time: 'Магазин в 9:35'},
     {name: 'wednesday', place_time: 'Магазин в 9:35'},
     {name: 'thursday', place_time: 'Высоцкого остановка в 9:30'},
     {name: 'friday', place_time: 'Магазин в 9:35'}
